@@ -1,0 +1,142 @@
+<!doctype html>
+<html class="site background">
+
+<head>
+  <meta charset="utf-8" />
+  <title>故事 | Stori</title>
+  <meta name="keywords" content="Stori, 小故事" />
+  <meta name="description" content="一个讲故事的小网站。" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css" />
+<!--  <link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" />-->
+  <link rel="stylesheet" type="text/css" href="css/v3.css" />
+<!--  <link rel="stylesheet" type="text/css" href="css/header" />-->
+  <script type="application/javascript" src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+<!--  <script type="application/javascript" src="js/home.js"></script>-->
+  <script src="//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+  <header class="v3" data-headroom>
+    <div class="container">
+      <div class="name-label">
+        <a class="logo-btn" tabindex="0" role="button" data-toggle="popover" data-trigger="focus" data-html="true"
+           title="关于作者" data-content="<blockquote><?php echo \stori\ProfileAPI::getHeaderDesc(); ?></blockquote>工作联系：yfwz100@yeah.net<br/>Github：yfwz100">
+          <img src="img/painter.png" class="logo" alt="logo">
+        </a>
+        <div class="name">故事 | stori</div>
+        <div class="author">by <a href="http://weibo.com/yfwz100">@yfwz100</a></div>
+      </div>
+    </div>
+    <nav class="v3">
+    <div class="container">
+      <ul class="nav nav-tabs">
+        <li role="presentation"><a href="/">近况</a></li>
+        <li role="presentation"><a href="/blog">博客</a></li>
+        <li role="presentation"><a href="/marked">收藏</a></li>
+        <li role="presentation"  class="active"><a href="/about">关于</a></li>
+      </ul>
+    </div>
+  </nav>
+  </header>
+
+  <main class="v3 about">
+    <div class="container">
+      <div class="panel panel-default">
+        <div class="panel-heading"><img class="heading-logo" src="img/painter.png">简介</div>
+        <div class="panel-body">
+          <p>大家好！小弟毕业于中国的<a href="http://www.neu.edu.cn">东北大学</a>，是一个编程爱好者，喜欢尝试各种新事物。自中学开始沉迷于图形界面和游戏 ，后游历北方，在各路高手的帮助和鼓励下，从此走上了编程的不归路、不断打怪升级（汗。偶尔文（2）艺（B），爱逛<a href="http://www.douban/people/yfwz100">豆瓣</a>、<a href="http://www.zhihu.com/people/yfwz100">知乎</a>。在研究生阶段接触到大数据，从而对数据十分着迷，屡次参加数据比赛，获得不错的成绩，相信数据终将改变生活。</p>
+          <p>更多信息：</p>
+          <ul>
+            <li>领英：<a href="http://www.linkedin.com/in/zhi-wang-0ba5ab87">Zhi Wang</a></li>
+            <li>微博：<a href="http://weibo.com/yfwz100">@yfwz100</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="achivement row">
+        <div class="col-md-4">
+          <div class="panel panel-default">
+            <div class="panel-heading">经历</div>
+
+            <table class="table">
+              <tr>
+                <td>2014~2017</td><td>东北大学软件学院 软件工程<br/>硕士</td>
+              </tr>
+              <tr>
+                <td>2013~2014</td><td>IBM 中国研究院（CRL）<br/>Web 开发及数据可视化</td>
+              </tr>
+              <tr>
+                <td>2010~2014</td><td>东北大学软件学院 软件工程<br/>学士</td>
+              </tr>
+              <tr>
+                <td colspan="2">……</td>
+              </tr>
+              <tr>
+                <td>1991</td><td>出生了！</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="box col-md-4">
+          <div class="panel panel-default">
+            <div class="panel-heading">正解锁技能</div>
+
+            <ul class="list-group">
+              <li class="list-group-item">
+                <p>1. 数据挖掘</p>
+                <p>Jupyter Notebook + Scikit/NumPy/... + d3.js + PyGlet</p>
+              </li>
+              <li class="list-group-item">
+                <p>2. 游戏开发</p>
+                <p>Phaser.js for Web, PyGlet for Python/Desktop</p>
+              </li>
+              <li class="list-group-item">
+                <p>3. Web开发</p>
+                <p>Spring (Java), Flask (Python), ...</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="box col-md-4">
+          <div class="panel panel-default">
+            <div class="panel-heading">比赛/获奖</div>
+
+            <table class="table">
+              <tr>
+                <td>2016.1</td><td>天翼大数据比赛（视频网站流量预测）<br/>第57名</td>
+              </tr>
+              <tr>
+                <td>2015.11</td><td>广东交通线路流量预测<br/>第24名</td>
+              </tr>
+              <tr>
+                <td>2015.7</td><td>阿里巴巴天池移动推荐算法比赛<br/>团队第四名</td>
+              </tr>
+              <tr>
+                <td>2015.5</td><td>辽宁省大学生计算机设计大赛（游戏）<br/>校二等奖</td>
+              </tr>
+              <tr>
+                <td>2014.12</td><td>全国互联网应用开发大赛（游戏开发）<br/>团队优秀奖</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="v3">
+    <div class="container">
+      <p>Designed and built with all the love in the world by yfwz100. :)</p>
+    </div>
+  </footer>
+
+  <script type="text/javascript" src="/js/v3.js"></script>
+</body>
+
+</html>

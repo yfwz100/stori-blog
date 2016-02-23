@@ -1,0 +1,81 @@
+<!doctype html>
+<html class="site background">
+
+<head>
+  <meta charset="utf-8" />
+  <title>故事 | Stori</title>
+  <meta name="keywords" content="Stori, 小故事" />
+  <meta name="description" content="一个讲故事的小网站。" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css" />
+<!--  <link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" />-->
+  <link rel="stylesheet" type="text/css" href="css/v3.css" />
+<!--  <link rel="stylesheet" type="text/css" href="css/header" />-->
+  <script type="application/javascript" src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+<!--  <script type="application/javascript" src="js/home.js"></script>-->
+  <script src="//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <header class="v3" data-headroom>
+    <div class="container">
+      <div class="name-label">
+        <a class="logo-btn" tabindex="0" role="button" data-toggle="popover" data-trigger="focus" data-html="true"
+           title="关于作者" data-content="<blockquote><?php echo \stori\ProfileAPI::getHeaderDesc(); ?></blockquote>工作联系：yfwz100@yeah.net<br/>Github：yfwz100">
+          <img src="img/painter.png" class="logo" alt="logo">
+        </a>
+        <div class="name">故事 | stori</div>
+        <div class="author">by <a href="http://weibo.com/yfwz100">@yfwz100</a></div>
+      </div>
+    </div>
+    <nav class="v3">
+    <div class="container">
+      <ul class="nav nav-tabs">
+        <li role="presentation">
+          <a href="/">近况</a>
+        </li>
+        <li role="presentation" class="active">
+          <a href="/blog">博客</a>
+        </li>
+        <li role="presentation">
+          <a href="/marked">收藏</a>
+        </li>
+        <li role="presentation">
+          <a href="/about">关于</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  </header>
+
+  <main class="blog v3">
+    <div class="container">
+    <?php foreach($stories as $item): ?>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="date-box"><?php $date = date_parse($item['time']); ?>
+            <div class="day"><?php echo $date['day']; ?></div>
+            <div class="month"><?php echo $date['month']; ?></div>
+            <div class="year"><?php echo $date['year']; ?></div>
+          </div>
+          <?php echo $item['title']; ?>
+        </div>
+        <div class="panel-body">
+          <?php echo $item['content']; ?>
+        </div>
+      </div>
+    <?php endforeach; ?>
+    </div>
+  </main>
+
+  <footer class="v3">
+    <div class="container">
+      <p>Designed and built with all the love in the world by yfwz100. :)</p>
+    </div>
+  </footer>
+
+  <script type="text/javascript" src="js/v3.js"></script>
+</body>
+
+</html>

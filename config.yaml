@@ -1,0 +1,9 @@
+name: "stori"
+version: 6
+handle:
+- hostaccess: if(path~"composer.json") allow "127.0.0.1"
+- hostaccess: if(path~"/templates/") allow "127.0.0.1"
+- hostaccess: if(path~"/lib/") allow "127.0.0.1"
+- hostaccess: if(path~"/vendor/") allow "127.0.0.1"
+- rewrite: if(!is_file() && path~"^.*$") goto "/index.php$1"
+- compress:  if ( out_header["Content-type"] ~ "image/png" ) compress

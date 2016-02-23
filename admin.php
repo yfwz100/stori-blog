@@ -2,6 +2,8 @@
 
 session_start();
 
+$config = require 'admin.config.php';
+
 $app = new \Slim\App(new \Slim\Container([
   'settings' => [
     'displayErrorDetails' => true,
@@ -30,7 +32,7 @@ $app->get('/', function ($req, $res) {
 
 $app->post('/', function ($req, $res) {
   $body = $req->getParsedBody();
-  if ($body['password'] == 'world of our own') {
+  if ($body['password'] == $config['password']) {
     if (isset($_SESSION['admin'])) {
       session_unset();
     } else {

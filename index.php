@@ -2,7 +2,7 @@
 
 session_start();
 
-$app = new \Slim\App(new \Slim\Container(require('config.php')));
+$app = new \Slim\App(new \Slim\Container(require('index.config.php')));
 
 $app->get('/', function ($req, $res) {
   $article = \stori\StoryAPI::fetchLatestStory();

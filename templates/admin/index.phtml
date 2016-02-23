@@ -1,0 +1,181 @@
+<!doctype html>
+<html class="site background">
+
+<head>
+  <meta charset="utf-8" />
+  <title>管理 - 故事 | Stori</title>
+  <meta name="keywords" content="Stori, 小故事" />
+  <meta name="description" content="一个讲故事的小网站。" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css" />
+<!--  <link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" />-->
+  <link rel="stylesheet" type="text/css" href="/css/v3-admin.css" />
+<!--  <link rel="stylesheet" type="text/css" href="css/header" />-->
+  <script type="application/javascript" src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+<!--  <script type="application/javascript" src="js/home.js"></script>-->
+  <script src="//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <main class="v3 container">
+
+    <header class="pull-right">
+      <a class="btn btn-default btn-danger pull-right" href="/admin/logout">退出</a>
+    </header>
+
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+      <li role="presentation" class="active">
+        <a href="#home" aria-controls="home" role="tab" data-toggle="tab">文章管理</a>
+      </li>
+      <li role="presentation">
+        <a href="#note" aria-controls="note" role="tab" data-toggle="tab">收藏</a>
+      </li>
+      <li role="presentation">
+        <a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">个人</a>
+      </li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane active" id="home">
+        <div class="row">
+          <div class="col-md-8">
+            <form action="/admin.php/blog/new" class="form" method="post">
+              <input type="hidden" name="time" id="tell-time" value="" />
+              <div class="form-group">
+                <label for="tell-title">标题：</label>
+                <input type="text" class="form-control" name="title" id="tell-title" placeholder="无题？" />
+              </div>
+              <div class="form-group">
+                <label for="tell-author">作者：</label>
+                <input type="text" class="form-control" name="author" id="tell-author" placeholder="昵称之类" />
+              </div>
+              <div class="form-group">
+                <label for="tell-content">内容：</label>
+                <textarea id="tell-content" class="form-control" name="content" rows="8" placeholder="真实故事、道听途说都可以"></textarea>
+              </div>
+              <p class="form-actions">
+                <button type="submit" class="btn btn-primary">提交</button>
+                <button type="reset" class="btn btn-default reset">重置</button>
+              </p>
+            </form>
+          </div>
+
+          <div class="col-md-4">
+            <div class="panel panel-default">
+              <div class="panel-heading">历史文章</div>
+              <ul class="list-group">
+                <?php foreach($stories as $no => $item): ?>
+                  <li class="list-group-item">
+                    <span class="date pull-right"><?php echo $item['time']; ?></span>
+                    <a class="article-item" href="#article-<?php echo $no; ?>"
+                       data-time="<?php echo $item['time']; ?>"
+                       data-title="<?php echo $item['title']; ?>"
+                       data-author="<?php echo $item['author']; ?>"
+                       data-content="<?php echo $item['content']; ?>">
+                      <?php echo $item['title']; ?>
+                    </a>
+                  </li>
+                <?php endforeach; ?>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <script type="text/javascript">
+          $(function () {
+            var $home = $('#home');
+
+            $('.article-item', $home).click(function (event) {
+              event.preventDefault();
+
+              var $this = $(this),
+                  time = $this.data('time'),
+                  title = $this.data('title'),
+                  author = $this.data('author'),
+                  content = $this.data('content');
+
+              $('#tell-title').val(title);
+              $('#tell-author').val(author);
+              $('#tell-content').val(content);
+              $('#tell-time').val(time);
+            });
+
+            $('.reset', $home).click(function () {
+              $('#tell-time').val('');
+            });
+
+            $('form', $home).submit(function (event) {
+              event.preventDefault();
+
+              var $form = $(this);
+              $.post($form.attr('action'), $form.serialize()).done(function () {
+                alert('保存成功！');
+              }).fail(function () {
+                alert('保存失败！');
+              });
+            });
+          });
+        </script>
+      </div>
+      <div role="tabpanel" class="tab-pane" id="note">
+        <form class="form" method="post" action="/admin.php/mark/new">
+          <div class="form-group">
+            <label for="note-url">地址：</label>
+            <input type="text" class="form-control" name="url" id="note-url" placeholder="URL" />
+          </div>
+          <div class="form-group">
+            <label for="tell-title">话题：</label>
+            <select class="form-control" name="topic" id="note-topic">
+              <?php foreach($noteTopics as $item): ?>
+              <option value="<?php echo $item['id']; ?>"><?php echo $item['name']; ?></option>
+              <?php endforeach; ?>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="note-comment">备注：</label>
+            <input type="text" class="form-control" name="comment" id="note-comment" placeholder="评论" />
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">提交</button>
+            <button type="reset" class="btn btn-default">重置</button>
+          </div>
+        </form>
+      </div>
+      <div role="tabpanel" class="tab-pane" id="profile">
+        <form action="/admin.php/profile/header/desc" method="post">
+          <div class="form-group">
+            <label for="header-desc">页头个人描述：</label>
+            <textarea class="form-control" name="header-desc" id="header-desc"><?php echo \stori\ProfileAPI::getHeaderDesc(); ?></textarea>
+          </div>
+          <p><button class="btn btn-default">保存</button></p>
+        </form>
+        <hr/>
+        <form class="form" action="/admin.php/profile/about" method="post">
+          <div class="form-group">
+            <label for="about-desc">『关于』简介：</label>
+            <textarea class="form-control" name="about-desc" id="about-desc"><?php echo \stori\ProfileAPI::getAboutDesc(); ?></textarea>
+          </div>
+          <div class="form-group">
+            <label for="about-exp">经历：</label>
+            <textarea class="form-control" name="about-exp" id="about-exp"><?php echo \stori\ProfileAPI::getAboutExp(); ?></textarea>
+          </div>
+          <div class="form-group">
+            <label for="about-prize">获奖：</label>
+            <textarea class="form-control" name="about-prize" id="about-prize"><?php echo \stori\ProfileAPI::getAboutPrize(); ?></textarea>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="v3">
+    <div class="container">
+      <p>Designed and built with all the love in the world by yfwz100. :)</p>
+    </div>
+  </footer>
+</body>
+</html>
