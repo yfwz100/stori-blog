@@ -4,3 +4,5 @@
 /bower_components/
 /node_modules/
 /vendor/
+/composer.lock
+/admin.config.php
