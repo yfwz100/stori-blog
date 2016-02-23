@@ -1,0 +1,22 @@
+{
+    "name": "yfwz100/stori",
+    "description": "A blog site.",
+    "authors": [
+        {
+            "name": "Zhi",
+            "email": "yfwz100@yeah.net"
+        }
+    ],
+    "minimum-stability": "beta",
+    "autoload": {
+        "psr-0": {
+            "": "lib/"
+        }
+    },
+    "require": {
+        "php": ">=5.5.9",
+        "slim/slim": "^3.0",
+        "slim/php-view": "^2.0",
+        "michelf/php-markdown": "^1.6"
+    }
+}

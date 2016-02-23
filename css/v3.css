@@ -1,0 +1,351 @@
+/* presets */
+
+html, body {
+  width:  100%;
+  height: 100%;
+}
+
+/* home page components */
+
+header.v3 {
+  background-image: url("http://s.cn.bing.net/az/hprichbg/rb/JinliStreetView_ZH-CN10751235981_1920x1080.jpg");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  width: 100%;
+  height: 50%;
+  min-height: 90px;
+}
+
+@media (min-width: 768px) {
+  
+  header.v3.pinned {
+    height: 90px;
+  }
+
+  header.v3.pinned .name-label {
+    font-size: 16pt;
+    left: 5px;
+  }
+  
+  header.v3 {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 99;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-out;
+  }
+  
+  header.v3 .name-label {
+    z-index: 100;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-out;
+  }
+  
+  header.v3 ~ main {
+    top: 50%;
+    padding-top: 2em;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-out;
+  }
+  
+  header.v3.pinned {
+    height: 90px;
+  }
+  
+  header.v3.pinned .name-label {
+    font-size: 16pt;
+    left: 5px;
+  }
+  
+  header.v3.pinned ~ main {
+    top: 90px;
+    padding-bottom: 90px;
+  }
+  header.v3.pinned ~ footer {
+    top: 90px;
+  }
+}
+
+header.v3 .container {
+  position: relative;
+  height: 100%;
+}
+
+header.v3 .name-label {
+  position: relative;
+  left: 5%;
+  top: 20%;
+  width: 100%;
+  text-shadow: 0 0 0.2em white;
+  font-size: 24pt;
+  font-weight: 400;
+  vertical-align: baseline;
+}
+
+@media (max-width: 320px) {
+  header.v3 .name-label {
+    font-size: 20pt;
+  }
+}
+
+header.v3 .name-label .logo-btn {
+  float: left;
+  margin-right: 0.5em;
+}
+
+@keyframes glowing-highlight {
+  from {
+    -webkit-box-shadow: 0 0 0 rgba(254, 174, 27, 0.3);
+            box-shadow: 0 0 0 rgba(254, 174, 27, 0.3);
+  }
+  50% {
+    -webkit-box-shadow: 0 0 20px rgba(254, 174, 27, 0.8);
+            box-shadow: 0 0 20px rgba(254, 174, 27, 0.8); 
+  }
+  to {
+    -webkit-box-shadow: 0 0 0 rgba(254, 174, 27, 0.3);
+            box-shadow: 0 0 0 rgba(254, 174, 27, 0.3); 
+  }
+}
+
+header.v3 .name-label .logo {
+  animation-name: glowing-highlight;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  height: 3em;
+  border-radius: 3em;
+  overflow: hidden;
+  border: 1px solid #ddd;
+}
+
+header.v3 .name-label .name {
+  font-size: 1.2em;
+}
+
+header.v3 .name-label .author {
+  font-size: 0.8em;
+}
+
+nav.v3 {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  border-bottom: 1px solid #ddd;
+  z-index: 100;
+}
+
+nav.v3 .nav {
+  margin-bottom: -1px;
+}
+
+nav.v3 li {
+  overflow: hidden;
+}
+
+nav.v3 li a {
+  color: white;
+  text-shadow: 0 0 15px black;
+  border: 1px solid white;
+  margin-right: 0.5em;
+  transition-duration: 1s;
+}
+
+nav.v3 li.active a {
+  text-shadow: 0 0 15px white;
+}
+
+nav.v3 li a:hover {
+/*  background-color: rgba(255, 165, 0, 0.66);*/
+  background-color: transparent;
+  border: 1px solid white;
+}
+
+@media (max-width: 500px) {
+  nav.v3 ul {
+    width: 100%;
+    border-bottom: 0;
+  }
+  
+  nav.v3 li {
+    display: table-cell;
+    width: 1%;
+    float: none;
+    text-align: center;
+  }
+}
+
+@media (min-width: 500px) {
+  nav.v3 ul {
+    float: right;
+  }
+  
+  nav.v3 li a {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    position: relative;
+    font-size: 1.2em;
+    z-index: 1;
+  }
+  
+  nav.v3 li {
+    position: relative;
+  }
+  
+  nav.v3 li:not(.active) a:after {
+    content: ' ';
+    height: 0;
+    width: 100%;
+    background-color: orange;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: 1s;
+  }
+  
+  nav.v3 li:not(.active):hover a:after {
+    content: ' ';
+    height: 100%;
+    width: 100%;
+  }
+}
+
+main.v3 {
+  position: relative;
+  padding-top: 1em;
+}
+
+main.v3 .panel-heading {
+  background-image: url(../img/bg.png);
+}
+
+main.home.v3 .date-box {
+  float: left;
+  margin-right: 1em;
+}
+
+main.blog.v3 .date-box {
+  float:right;
+  margin-left: 1em;
+}
+
+main.home.v3 .panel, main.blog.v3 .panel {
+  transition-duration: 1s;
+}
+
+main.home.v3 .panel:hover, main.blog.v3 .panel:hover {
+  box-shadow: 0 3px 5px -1px #ddd;
+}
+
+main.home.v3 .weather .icon {
+  vertical-align: middle;
+}
+
+main.home.v3 .weather .temp {
+  font-size: 16pt;
+}
+
+main.v3 .date-box {
+  width: 5em;
+  height: 5em;
+  border: 2px solid orange;
+  border-radius: 0.5em;
+  background-color: orange;
+  line-height: 1;
+  text-align: center;
+}
+
+main.v3 .date-box .year, main.v3 .date-box .year:before {
+  float: right;
+  line-height: 2;
+  margin-right: 0.5em;
+  color: white;
+}
+
+main.v3 .date-box .month {
+  float: left;
+  line-height: 2;
+  margin-left: 0.5em;
+  color: white;
+}
+
+main.v3 .date-box .day {
+  font-size: 3em;
+  line-height: 1;
+  background-color: white;
+  border-top-left-radius: 0.15em;
+  border-top-right-radius: 0.15em;
+  text-shadow: 0px 0px #ddd, 1px 1px #ddd, 2px 2px #ddd, 3px 3px #ddd, 4px 4px #ddd, 5px 5px #ddd, 6px 6px #ddd, 7px 7px #ddd, 8px 8px #ddd, 9px 9px #ddd, 10px 10px #ddd, 11px 11px #ddd, 12px 12px #ddd, 13px 13px #ddd, 14px 14px #ddd, 15px 15px #ddd, 16px 16px #ddd, 17px 17px #ddd, 18px 18px #ddd, 19px 19px #ddd, 20px 20px #ddd, 21px 21px #ddd, 22px 22px #ddd, 23px 23px #ddd, 24px 24px #ddd, 25px 25px #ddd, 26px 26px #ddd, 27px 27px #ddd, 28px 28px #ddd, 29px 29px #ddd, 30px 30px #ddd, 31px 31px #ddd, 32px 32px #ddd, 33px 33px #ddd, 34px 34px #ddd, 35px 35px #ddd, 36px 36px #ddd, 37px 37px #ddd, 38px 38px #ddd, 39px 39px #ddd, 40px 40px #ddd, 41px 41px #ddd, 42px 42px #ddd, 43px 43px #ddd, 44px 44px #ddd, 45px 45px #ddd, 46px 46px #ddd, 47px 47px #ddd, 48px 48px #ddd, 49px 49px #ddd, 50px 50px #ddd, 51px 51px #ddd, 52px 52px #ddd, 53px 53px #ddd, 54px 54px #ddd, 55px 55px #ddd, 56px 56px #ddd, 57px 57px #ddd, 58px 58px #ddd, 59px 59px #ddd, 60px 60px #ddd, 61px 61px #ddd, 62px 62px #ddd, 63px 63px #ddd, 64px 64px #ddd, 65px 65px #ddd, 66px 66px #ddd, 67px 67px #ddd, 68px 68px #ddd, 69px 69px #ddd, 70px 70px #ddd, 71px 71px #ddd, 72px 72px #ddd, 73px 73px #ddd, 74px 74px #ddd, 75px 75px #ddd, 76px 76px #ddd, 77px 77px #ddd, 78px 78px #ddd, 79px 79px #ddd, 80px 80px #ddd, 81px 81px #ddd, 82px 82px #ddd, 83px 83px #ddd, 84px 84px #ddd, 85px 85px #ddd;
+  overflow: hidden;
+}
+
+@media (min-width: 801px) {
+  main.about.v3 .achivement .panel {
+    height: 20em;
+    overflow: auto;
+    transition: 1s;
+  }
+}
+
+main.about.v3 .heading-logo {
+  float: left;
+  width: 64px;
+  margin-right: 0.5em;
+  border-radius: 32px;
+}
+
+main.note.v3 .note {
+  color: rgb(17, 17, 17);
+  margin: 20px 0;
+}
+
+main.note.v3 .note .mod {
+  position: relative;
+  padding: 10px;
+  background: #f5f5f5;
+  color: #666;
+  word-wrap: break-word
+}
+
+main.note.v3 .note .mod:after {
+  content: '\0020';
+  display: block;
+  clear: both
+}
+
+main.note.v3 .note .mod .bd {
+  padding: 20px;
+  background: #fff;
+  overflow: hidden;*
+  zoom: 1;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+main.note.v3 .note .source {
+  color: #ccc;
+  margin-bottom: 10px;
+}
+
+main.note.v3 .note .title {
+  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 1.3;
+  color: #8f8f8f;
+}
+
+main.note.v3 .note .comment {
+  padding: 15px 20px 0
+}
+
+main.note.v3 .note .comment span {
+  color: #999;
+}
+
+footer.v3 {
+  margin-top: 1em;
+  height: 5em;
+  text-align: center;
+  color: #ddd;
+}

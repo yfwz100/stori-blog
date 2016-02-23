@@ -1,0 +1,156 @@
+html {
+  font: 100%/1.5 Verdana, "微软雅黑", sans-serif;
+  color: #3d464d;
+  background-color: #efefef;
+  -webkit-font-smoothing: antialiased;
+  width: 100%;
+  height: 100%;
+}
+body {
+  background-image: url(http://img.t.sinajs.cn/t6/skin/skin026/images/body_bg.jpg?id=1410943047113);
+  background-color: #efefef;
+  background-size: cover;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+hr {
+  border: none;
+  margin-top: -1px;
+  height: 1px;
+  background-color: #c0c8c9;
+  background-image: -webkit-linear-gradient(0deg, #fff, #c0c8c9, #fff);
+}
+.pagebox {
+  background-color: white;
+  margin-bottom: 1em;
+  border-radius: 10px;
+  box-shadow: 0 0 3px #acacac;
+}
+.footer {
+  text-align: center;
+  color: wheat;
+}
+/* nav */
+.global.navbar {
+  border-radius: 0;
+}
+.global .nav i.glyphicon {
+  opacity: 0;
+  letter-spacing: -1em;
+  transition: 0.5s;
+}
+.global .nav li:hover i.glyphicon {
+  opacity: 1;
+  letter-spacing: 0;
+}
+/* for home page */
+.main.site {
+  box-shadow: 0 0 10px #222;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.main.site .postcode {
+  position: absolute;
+  z-index: 99;
+  top: 10px;
+  left: 10px;
+}
+.main.site .postcode .item {
+  width: 2em;
+  height: 2em;
+  line-height: 2em;
+  border: 1px solid black;
+  float: left;
+  margin: 0.1cm;
+  font-family: fantasy;
+  font-size: 16pt;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  color: #222;
+}
+.main.site .postcode .item:hover {
+  text-shadow: 0 0 10px white;
+}
+.home .footer {
+  line-height: 3em;
+  font-weight: 500;
+  color: white;
+}
+/* for blog */
+#blog .no-article {
+  line-height: 200px;
+  text-align: center;
+}
+#blog section {
+  padding: 0.3em;
+  margin-bottom: 1em;
+}
+#blog .author {
+  float: right;
+  color: #ccc;
+}
+#blog .title:before {
+  content: '#';
+  color: #acacac;
+  margin-right: 0.5em;
+}
+#blog .title {
+  font-size: 1.2em;
+  text-align: left;
+  cursor: pointer;
+}
+#blog .content {
+  display: none;
+  padding: 1em;
+  margin-bottom: 1em;
+}
+/* for about page */
+#about .about-content {
+  text-align: center;
+}
+/* Large screens */
+@media (min-width: 600px) {
+  nav {
+    z-index: 1;
+  }
+  
+  .home {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+  }
+  
+  .home .footer {
+    position: absolute;
+    bottom: 8%;
+    width: 100%;
+    font-size: 14pt;
+  }
+  
+  .main.site.start {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(5deg);
+    width: 50%;
+  }
+
+  .main.site {
+    width: 80%;
+    min-width: 600px;
+    transition: 1s;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    transition: 1s;
+  }
+  
+  #about img {
+    width: 50%;
+  }
+}
