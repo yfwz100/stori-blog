@@ -344,6 +344,8 @@ main.note.v3 .note .comment span {
 }
 
 footer.v3 {
+  position: relative;
+  top: 50%;
   margin-top: 1em;
   height: 5em;
   text-align: center;
