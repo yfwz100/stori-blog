@@ -26,7 +26,7 @@ $doc.on('mousewheel', function (event) {
         }
       } else {
         var lastAttampt = parseInt($head.data('pinned-ts')) || 0;
-        if (new Date() - lastAttampt < 300) {
+        if (new Date() - lastAttampt < 500) {
           event.preventDefault();
         }
       }
