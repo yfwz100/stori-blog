@@ -61,7 +61,6 @@ header.v3 {
   
   header.v3.pinned ~ main {
     top: 90px;
-    padding-bottom: 90px;
   }
   header.v3.pinned ~ footer {
     top: 90px;
