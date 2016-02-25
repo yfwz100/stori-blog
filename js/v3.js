@@ -7,7 +7,7 @@ $.getJSON('/weather', function (data) {
 var $doc = $(document), $win = $(window);
 var $head = $('[data-headroom]');
 var pinnedClass = 'pinned';
-$doc.on('mousewheel', function (event) {
+function onMouseWheel(event) {
   if ($doc.height() > $win.height()) {
     var evt = event.originalEvent;
     if (!$head.hasClass(pinnedClass)) {
@@ -32,4 +32,10 @@ $doc.on('mousewheel', function (event) {
       }
     }
   }
-});
+}
+$doc.on('mousewheel', onMouseWheel);
+$doc.scroll(function () {
+  if ($doc.scrollTop() <= 0) {
+    $head.removeClass(pinnedClass);
+  }
+})
