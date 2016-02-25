@@ -46,6 +46,12 @@ $app->get('/marked/{id}', function ($req, $res, $arg) {
   ]);
 });
 
+$app->get('/get/article/abstract', function ($req, $res) {
+  $params = $req->getQueryParams();
+  $ret = \stori\Abstractify::fromURL($params['url']);
+  return $res->withJSON($ret);
+});
+
 $app->get('/contact', function ($req, $res) {
   return $this->view->render($res, 'contact.phtml');
 });

@@ -81,11 +81,11 @@ class Abstractify {
   }
 }
 
-$url = 'http://grouplens.org/datasets/movielens/';
+//$url = 'http://grouplens.org/datasets/movielens/';
 //$url = 'https://www.zhihu.com/question/32164316/answer/55036580';
 //$url = 'http://www.jianshu.com/p/9f3cbdb1c51f';
 //$url = 'http://neunews.neu.edu.cn/campus/media/2016-02-05/43251.html';
 //$url = 'http://www.neu.edu.cn';
 //$url = 'http://view.news.qq.com/original/intouchtoday/n3131.html';
-file_put_contents('test.json', json_encode(Abstractify::fromURL($url)));
+//file_put_contents('test.json', json_encode(Abstractify::fromURL($url)));
 //file_put_contents('test.json', Abstractify::fromURL($url));

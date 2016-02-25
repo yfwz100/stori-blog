@@ -71,15 +71,15 @@ class Mark {
     return $this->postNote($title, $content, $url, $topic, $comment);
   }
 
-//  function getNoteTopic($id) {
-//    if ($this->pdo) {
-//      $stat = $this->pdo->prepare('select * from `note_topic` where id=:id');
-//      if ($stat->execute([':id' => $id])) {
-//        return $stat->fetch();
-//      }
-//    }
-//    return ['name' => 'Unknown'];
-//  }
+  function getNoteTopic($id) {
+    if ($this->pdo) {
+      $stat = $this->pdo->prepare('select * from `note_topic` where id=:id');
+      if ($stat->execute([':id' => $id])) {
+        return $stat->fetch();
+      }
+    }
+    return ['name' => 'Unknown'];
+  }
 
   /**
    * List the note topics.
